@@ -1,0 +1,1 @@
+document.writeln("外部文件")
