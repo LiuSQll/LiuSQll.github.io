@@ -1,0 +1,35 @@
+
+
+.one{
+    white-space: pre;
+}
+.header{
+    background-color:grey;
+    height: 90px;
+    line-height: 90px;
+    padding-left: 20px;
+}
+.cont h2{
+float:left;
+background-color: gray;
+width:120px;
+height: 120px;
+margin:1px;
+margin-left:0;
+text-align: center;
+line-height: 120px;
+}
+.contbox{
+    float: left;
+    margin-left: 1px;
+    padding-top: 5px;
+    padding-left: 5px;
+    height: 80px;
+}
+.cont{
+    clear:both;
+    border:0.5px solid gray;       
+}
+span{
+    font-weight: bold;
+}
