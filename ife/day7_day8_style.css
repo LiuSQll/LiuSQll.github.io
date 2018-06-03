@@ -101,6 +101,7 @@ li{
     width: 100%;
     margin: 0 auto;
     padding-top: 20px;
+    justify-content: center;
 }
 
 .ContentTop{
@@ -108,7 +109,6 @@ li{
 }
 .ContentCenter{
     display: flex;
-    
 }
 
 .ContentBottom{
@@ -119,10 +119,10 @@ article{
     padding: 80px;
     border: 1px solid gray;
     flex: 1;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin:5px;
     
 }
+
 
 /*底部*/
 .Pagebottom{
