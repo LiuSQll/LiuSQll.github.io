@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                    <li><span>CSS</span><a href="">Some Link3</a></li>
+                    <li><span>JS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>HTML</span><a href="">Some Link2</a></li>
+                    <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                    <li><span>CSS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+            <button  onclick="getAllListItem()">点击获取所有li标签</button> <br / >
+            填入想要获取span标签的section的id<input type="text" id = "sectionIdInput"/> <br / >
+            <button id="spanContext">获取某个section下span标签</button>
+            <button id="LiSpanContext">获取某个section下指定内容的Li标签</button>
+            <button id = "ClassActive">获取某个section下class为active的a链接内容</button>
+            <p id="list"></p>
+        </div>      
+    </div>
+    <script>
+
+    function getAllListItem() {
+        // 返回页面中所有li标签
+        var list =document.getElementsByTagName("li");
+        var temp=[];
+        for(var i =0;i<list.length;i++){
+        console.log(list[i]);
+        temp.push(list[i].innerHTML);
+        document.getElementById("list").innerHTML = temp;
+        }
+        }
+     document.getElementById("spanContext").onclick =  function findAllHtmlSpanInOneSection(sectionId) {
+        // 返回某个section下所有span中内容为HTML的span标签
+        var sectionId = document.getElementById("sectionIdInput").value;//获取输入框的值
+        console.log(sectionId);
+        var somesection = document.getElementById(sectionId);
+        var spanText = somesection.getElementsByTagName("span");//获取id为news-normal的div下的所有span元素节点
+        var spanTemp = [];
+        for( var i = 0;i<spanText.length;i++){
+            if(spanText[i].innerHTML =="HTML"){
+                spanTemp.push(spanText[i].innerHTML);
+                console.log(spanText[i]);
+                document.getElementById("list").innerHTML = spanTemp;
+            }
+        }
+    }
+
+    document.getElementById("LiSpanContext").onclick =function findListItem(sectionId, spanCont) {
+        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+        var sectionId = document.getElementById("sectionIdInput").value;//获取输入框的值
+        console.log(sectionId);
+        var SomeSection = document.getElementById(sectionId);
+        var spanCont = SomeSection.getElementsByTagName("span");
+        var LiTemp = [];
+        for( var i = 0;i<spanCont.length;i++){
+            if(spanCont[i].innerHTML =="spanCont"){
+                var LiText = spanCont[i].parentNode;
+                LiTemp.push(LiText.innerHTML);
+                console.log(LiTemp);
+                document.getElementById("list").innerHTML = LiTemp;
+
+            }
+        }
+    }
+
+    document.getElementById("ClassActive").onclick = function getActiveLinkContent(sectionId) {
+        // 返回某个section下，class为active的链接中包含的文字内容
+        var sectionId = document.getElementById("sectionIdInput").value;
+        var section = document.getElementById(sectionId);
+        var a = section.getElementsByTagName('a');
+        var aResult=[]
+        
+        for(var i =0;i<a.length;i++){
+            if(a[i].className == "active"){
+                aResult.push(a[i].innerHTML)
+                console.log(aResult);
+                document.getElementById("list").innerHTML = aResult;
+            }
+        }
+        
+         }
+        
+
+    
+
+    </script>
+</body>
+</html>
